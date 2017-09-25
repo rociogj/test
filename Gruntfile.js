@@ -45,11 +45,11 @@ module.exports = function (grunt) {
       },
       coffee: {
         files: ['<%= config.app %>/script/**/*.coffee'],
-        tasks: ['copy:scriptsPre','coffee:prueba']
+        tasks: ['clean:scripts','copy:scriptsPre','coffee:prueba']
       },
       js: {
         files: ['<%= config.app %>/script/**/*.js'],
-        tasks: ['copy:scriptsPre', 'jsjoin:pre']
+        tasks: ['copy:scriptsPre']
       },
       html: {
       files: ['<%= config.app %>/**/*.html','<%= config.app %>/**/*.shtml'],
@@ -126,6 +126,17 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.dist %>/_*.*'
+          ]
+        }]
+      },
+       scripts: {
+        options: {
+          force: true
+        },
+        files: [{
+          dot: true,
+          src: [
+            '<%= config.pre %>/script'
           ]
         }]
       },
@@ -277,14 +288,14 @@ module.exports = function (grunt) {
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
-    useminPrepare: {     
+    useminPrepare: {
         options: {
           dest: '<%= config.dist %>'
         },
         html: '<%= config.pre %>/index.html'
     },
     // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {   
+    usemin: {
         options: {
           assetsDirs: [
             '<%= config.dist %>',
@@ -489,7 +500,7 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
-            'imgs/**/*.webp',
+            'imgs/**/*.*',
             '**/*.html',
             '**/*.json',
             'styles/base/fonts/{,*/}*.*',
@@ -501,6 +512,18 @@ module.exports = function (grunt) {
           cwd: '.',
           src: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
           dest: '<%= config.dist %>'
+        }]
+      },
+      vendor: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '.tmp/concat/styles/',
+          dest: '<%= config.dist %>/styles/',
+          src: [
+            'vendor.css'
+          ]
+
         }]
       },
       pre: {
@@ -534,7 +557,7 @@ module.exports = function (grunt) {
           src: [
             '**/*.shtml', '**/*.html'
           ]
-        
+
         }]
       },
       ssi: {
@@ -634,15 +657,15 @@ module.exports = function (grunt) {
       'clean:predashed', // Borra el footer y header de pre
       'wiredep:pre', // Mete los componentes de bower en los html en pre
       'useminPrepare',
-      
+
       'sass:prueba',
       'postcss:scss',
        // Completa el main.css de tmp los prefijos de los navegadores (-moz, etc)
       'coffee:prueba',
       'concat', // Mete todos los js y css en un único archivo. Los nuestros en main. Los componentes en vendor.
-      
-      'cssmin:dist', // Minimiza el main.css de tmp y lo copia en dist.      
-      
+
+      'cssmin:dist', // Minimiza el main.css de tmp y lo copia en dist.
+
       'modernizr:pre',  // Copia el modernizr.js
       'processhtml:pre', // Cambia la ruta del css en los html de pre.
       'usemin', // Sustituye los href de los html con las nuevas rutas.
@@ -669,7 +692,7 @@ module.exports = function (grunt) {
     'clean:predashed', // Borra el footer y header de pre
     'wiredep:pre', // Mete los componentes de bower en los html en pre
     'useminPrepare',
-    
+
     'sass:prueba',
     'postcss:scss',
      // Completa el main.css de tmp los prefijos de los navegadores (-moz, etc)
@@ -677,13 +700,14 @@ module.exports = function (grunt) {
     'concat', // Mete todos los js y css en un único archivo. Los nuestros en main. Los componentes en vendor.
     'cssmin:dist', // Minimiza el main.css de tmp y lo copia en dist.
     'uglify', // Minimiza los dos js concatenados y los copia en dist.
-    'copy:dist', // Copia los archivos de pre a dist. 
-    
+    'copy:dist', // Copia los archivos de pre a dist.
+
     'modernizr:dist',  // Copia el modernizr.js
+    'copy:vendor',
     'processhtml:pre', // Cambia la ruta del css en los html de pre
     //'filerev', // Sustituye los nombres de imágenes y archivos aleatoriamente y cambia los enlaces a ellos, para evitar cachés.
     'usemin', // Sustituye los href de los html con las nuevas rutas.
-    'htmlmin' // Comprime los htmls.    
+    'htmlmin' // Comprime los htmls.
   ]);
 
   grunt.registerTask('default', [
