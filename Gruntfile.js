@@ -45,7 +45,7 @@ module.exports = function (grunt) {
       },
       coffee: {
         files: ['<%= config.app %>/script/**/*.coffee'],
-        tasks: ['clean:scripts','copy:scriptsPre','coffee:prueba']
+        tasks: ['copy:scriptsPre','coffee:prueba']
       },
       js: {
         files: ['<%= config.app %>/script/**/*.js'],

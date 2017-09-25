@@ -34,13 +34,24 @@ jQuery(document).ready ($) ->
     		items.push '<a href="#" class=\'feature__link\'>' + val.recipe.substring(70, 76) + '</a>'
     		items.push '<a href="#" class=\'feature__link\'>' + val.recipe.substring(55, 67) + '</a>'
     		items.push '<a href="#" class=\'feature__link\'>' + val.recipe.substring(73, 80) + '</a>'
-    		items.push '<a href="#" class=\'btn btn--secondary\'>' + val.recipe.substring(0, 12) + '</a>'######
+    		items.push '<a href="#" class=\'btn btn--secondary\'>' + val.recipe.substring(0, 12) + '</a>'
 	    	$('<div/>',
 	    		'class': 'feature col-md-3 col-sm-6 col-xs-12'
 	    		html: items.join('')).appendTo '.features .belt'
 	    	items = []
+    		#return
+    	#return
+    	titles = []
+    	$.each data, (key, val) ->
+    		if val == undefined
+    			return true
+    		titles.push val.name
     		return
-    	return
+    	i = 0
+   		while i <= 5
+   			$('.features__content').eq(i).find('.features__content-title').text titles[i]
+   			i++
+   		return
    	return
 
   init()
