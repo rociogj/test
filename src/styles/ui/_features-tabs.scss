@@ -1,0 +1,195 @@
+.features-tabs {
+	padding: rem(20) rem(10);
+	.features {
+		&__title {
+			@include main-font-light(40);
+			color: $tertiary-text-color;
+			text-align: center;
+			margin: rem(20) 0;
+
+			span {
+				@include main-font-regular(40);
+			}
+		}
+
+		&__description {
+			@include main-font-light(16);
+			line-height: rem(26);
+			color: $secondary-text-color;
+			text-align: center;
+			margin: 0 auto rem(30);
+			max-width: rem(690);
+		}
+
+		&__tabs {
+			display: block;
+			margin: rem(20) auto;
+			text-align: center;
+			li {
+				@extend %inline-block;
+				max-width: 19%;
+				a {
+					@include main-font-bold(14);
+					color: #6E6E6E;
+					background-color: #ededed;
+					@include border-radius(3);
+					padding: rem(10) rem(32);
+					position: relative;
+					-webkit-transition: all ease-out 0.2s;
+					-moz-transition: all ease-out 0.2s;
+					-o-transition: all ease-out 0.2s;
+					-ms-transition: all ease-out 0.2s;
+					transition: all ease-out 0.2s;
+					@media only screen and (max-width: $screen-sm) {
+						padding: rem(10) rem(10);
+					}
+
+					&:hover, &.active {
+						text-decoration: none;
+						color: $main-text-color;
+						background-color: $secondary-color;
+
+						&::after {
+							content: '';
+							display: inline-block;
+							position: absolute;
+							top: 100%;
+							left: calc(50% - 5px);
+							height: 0;
+							border-style: solid;
+							border-width: rem(10) rem(5) 0 rem(5);
+							border-color: $secondary-color transparent transparent transparent;
+						}
+					}
+				}
+				
+			}
+		}
+
+		&__content {
+			text-align: center;
+			display: none;
+			&:first-child {
+				display: block;
+			}
+			&-title {
+				@include main-font-regular(18);
+				color: $tertiary-text-color;
+				padding: rem(10) 0 rem(20);
+			}
+			&-process {
+				@extend %flex;
+				-webkit-box-pack: center;
+				-moz-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: stretch;
+				-moz-box-align: stretch;
+				-ms-flex-align: stretch;
+				-webkit-align-items: stretch;
+				align-items: stretch;
+				@media only screen and (max-width: $screen-sm) {
+					display: block;
+				}
+
+				li {
+					@extend %inline-flex;
+					vertical-align: top;
+					width: 24%;
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+					-moz-box-orient: vertical;
+					-moz-box-direction: normal;
+					-ms-flex-direction: column;
+					-webkit-flex-direction: column;
+					flex-direction: column;
+					-ms-flex-item-align: center;
+					-webkit-align-self: center;
+					align-self: center;
+					padding: 0 rem(10);
+					position: relative;
+
+					@media only screen and (max-width: $screen-sm) {
+						width: 49%;
+						display: inline-block;
+					}
+
+					&::before {
+						content: '';
+						display: block;
+						margin: rem(10) auto;
+						width: rem(100);
+						height: rem(100);
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+
+					@for $i from 1 through 4 {
+						&:nth-child(#{$i})::before {
+							background-image: url(../imgs/image-#{$i}.svg);
+						}
+					}
+
+					&::after {
+						content: '';
+						display: inline-block;
+						width: rem(16);
+						height: rem(16);
+						position: absolute;
+						right: 0;
+						top: calc(50% - 8px);
+						background-image: url(../imgs/arrow-right-grey-icon.svg);
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+
+					p {
+						@include main-font-regular(14);
+						color: #6e6e6e;
+						margin: rem(15) 0;
+						line-height: rem(17);
+					}
+				}
+			}
+		}
+
+		&__bar {
+			margin: rem(40) 0;
+			li {
+				@extend %inline-block;
+				width: 24%;
+				position: relative;
+				&::before {
+					content: '';
+					display: inline-block;
+					width: rem(29);
+					height: rem(29);
+					@include border-radius(50%);
+					background-color: #90C35C;
+					background-image: url(../imgs/check-white-icon.svg);
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+				&::after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: rem(2);
+					background-color: $secondary-bg-color;
+					position: absolute;
+					left: 50%;
+				    top: calc(50% - 1px);
+				    z-index: -1;	
+				}
+				&:last-child::after {
+					display: none;
+				}
+				&.negative::before {
+					background-color: #E86464;
+					background-image: url(../imgs/close-icon.svg);
+				}
+			}
+		}
+	}
+}

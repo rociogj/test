@@ -1,0 +1,43 @@
+.btn {
+	@include main-font-bold(14);
+	text-transform: uppercase;
+	padding: rem(16) 0;
+	text-align: center;
+	display: inline-block;
+	width: rem(111);
+	@include border-radius(3);
+	text-decoration: none;
+	-webkit-transition: background-color ease-out 0.3s;
+	-moz-transition: background-color ease-out 0.3s;
+	-o-transition: background-color ease-out 0.3s;
+	-ms-transition: background-color ease-out 0.3s;
+	transition: background-color ease-out 0.3s;
+
+	&--primary {
+		background-color: $tertiary-color;
+		color: $main-text-color;
+
+		&:hover, &:focus {
+			@include main-font-regular(14);
+			background-color: $main-bg-color;
+			color: $tertiary-color;
+			border: rem(3) solid $tertiary-color;
+			padding: rem(14) 0;
+		}
+	}
+
+	&--secondary {
+		@include main-font-bold(13);
+		color: $secondary-color;
+		padding: rem(16);
+		border: rem(1) solid $secondary-color;
+		width: auto;
+
+		&:hover, &:focus {
+			background-color: $secondary-color;
+			border: rem(3) solid $main-bg-color;
+			padding: rem(14) rem(16);
+			color: $main-text-color;
+		}
+	}
+}

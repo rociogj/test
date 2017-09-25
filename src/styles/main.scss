@@ -1,0 +1,39 @@
+/* Agregar solo @imports, y solo en sass.  
+
+Ejemplo: 
+
+@import 'base/reset.scss';
+@import 'base/fonts.scss';
+*/
+
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+// bower:scss
+@import 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+// endbower
+
+/* BASE */
+@import 'base/_reset.scss';
+@import 'base/_mixins.scss';
+@import 'base/_fonts.scss';
+@import 'base/_variables.scss';
+@import 'base/_base.scss';
+
+/* LAYOUT */
+@import 'layout/_layout.scss';
+@import 'layout/_buttons.scss';
+@import 'layout/_forms.scss';
+
+@import 'ui/_tooltip.scss';
+
+/* HEADER */
+@import 'ui/_tools.scss';
+@import 'ui/_nav.scss';
+
+/* HOME */
+@import 'ui/_hero.scss';
+@import 'ui/_search.scss';
+@import 'ui/_features.scss';
+@import 'ui/_features-tabs.scss';
+
+/* FOOTER */
+@import 'ui/_footer.scss';

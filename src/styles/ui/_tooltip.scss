@@ -1,0 +1,138 @@
+.tooltip-container {
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	vertical-align: middle;
+
+	.tooltip-icon {
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	&::before {
+		content: '';
+		border-left: 12px solid transparent;
+		border-right: 12px solid transparent;
+		border-top: 12px solid $main-bg-color;
+		left: calc(50% - 17px);
+		position: absolute;
+		z-index: 22;
+		display: none;
+		top: rem(-16);
+	}
+
+	&::after {
+		/* This is the shadow triangle */
+		content: '';
+		border-left: 14px solid transparent;
+		border-right: 14px solid transparent;
+		border-top: 15px solid rgba(0,0,0, 0.1);
+		left: calc(50% - 15px);
+		position: absolute;
+		z-index: 21;
+		display: none;
+		top: rem(-15);
+	}
+
+	&.visible {
+
+		&::before {
+			display: block;
+		}
+
+		&::after {
+			display: block;
+		}
+
+		.tooltip-content {
+			visibility: visible;
+		}
+	}
+
+	&.top-arrow {
+		&::before {
+			content: '';
+			border-bottom: 12px solid $main-bg-color;
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+			border-top: 0;
+			left: calc(50% - 17px);
+			position: absolute;
+			bottom: rem(-21);
+			top: auto;
+			z-index: 22;
+		}
+		&::after {
+			/* This is the shadow triangle */
+			content: '';
+			border-bottom: 13px solid rgba(0,0,0, 0.2);
+			border-left: 14px solid transparent;
+			border-right: 14px solid transparent;
+			border-top: 0;
+			top: auto;
+			left: calc(50% - 19px);
+			position: absolute;
+			z-index: 4;
+			bottom: rem(-21);
+		}
+	}
+}
+
+.tooltip-content {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	box-shadow: 0 16px 12px -17px rgba(0, 0, 0, 0.5);
+	display: block;
+	height: auto;
+	left: -100%;
+	padding: rem(12);
+	position: absolute;
+	text-align: center;
+	visibility: hidden;
+	min-width: rem(160);
+	width: auto;
+	z-index: 5;
+	@include border-radius(3);
+
+	.tooltip-text {
+		display: block;
+		width: auto;
+
+		p {
+			display: block;
+			@include main-font-regular(14);
+			color: $secondary-text-color;
+			padding-bottom: rem(10);
+			text-align: center;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+
+		}
+	}
+
+	&.current {
+		@media only screen and (max-width: $screen-sm) {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			-o-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			z-index: 11;
+			visibility: visible;
+			max-width: 90vw !important;
+			min-width: 0 !important;
+			width: 90vw !important;
+			&::before {
+				display: none;
+			}
+			&::after {
+				display: none;
+			}
+		}
+	}
+}

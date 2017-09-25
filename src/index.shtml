@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <meta name="description" content="">
+    
+    <!--#include file="_head.html" -->
+    
+  </head>
+  <body>
+
+    <div class="body">
+      <header>
+        <div class="header">
+          <!--#include file="ui/_tools.html" -->
+          <!--#include file="ui/_nav.html" -->
+        </div>
+      </header>
+        <div class="wrapper">
+          <section>
+            <!--#include file="ui/_hero.html" -->
+          </section>
+          <section>
+            <!--#include file="ui/_features.html" -->
+          </section>
+          <section>
+            <!--#include file="ui/_features-tabs.html" -->
+          </section>
+        </div><!-- end wrapper -->
+
+      <footer>
+          <!--#include file="ui/_footer.html" -->
+      </footer>
+    </div>
+
+
+<!--#include file="_foot.html" -->

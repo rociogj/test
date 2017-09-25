@@ -1,0 +1,82 @@
+.features {
+	text-align: center;
+	background-color: $secondary-bg-color;
+	font-size: 0;
+	.feature {
+		@extend %inline-block;
+		float: none;
+		padding: rem(16);
+		border-right: rem(1) solid transparentize($tertiary-bg-color, .9);
+
+		@media only screen and (max-width: $screen-sm) {
+			border-bottom: rem(1) solid transparentize($tertiary-bg-color, .9);
+		}
+		&:nth-last-child(1) {
+			border-right: 0;
+			@media only screen and (max-width: $screen-sm) {
+				border: 0;
+			}
+		}
+		&:nth-child(even) {
+			@media only screen and (max-width: $screen-md) {
+				border-right: 0;
+			}
+		}
+		&:nth-child(odd) {
+			@media only screen and (max-width: $screen-sm) {
+				border-right: 0;
+			}
+		}
+
+		&__title {
+			@include main-font-regular(21);
+			color: $tertiary-text-color;
+			margin: rem(16) 0;
+
+			&::before {
+				content: '';
+				display: block;
+				margin: 0 auto rem(16);
+				width: rem(59);
+				height: rem(66);
+				background-repeat: no-repeat;
+				background-size: contain;
+			}
+		}
+		&__description {
+			@include main-font-light(16);
+			line-height: rem(28);
+			color: $secondary-text-color;
+		}
+		&__link {
+			@include main-font-regular(15);
+			color: $secondary-color;
+			display: block;
+			line-height: rem(44);
+		}
+		.btn {
+			margin: rem(30) 0 rem(10);
+		}
+
+		&:nth-child(1) {
+			.feature__title::before {
+				background-image: url(../imgs/feature-ship-icon.svg);
+			}
+		}
+		&:nth-child(2) {
+			.feature__title::before {
+				background-image: url(../imgs/feature-shipping-icon.svg);
+			}
+		}
+		&:nth-child(3) {
+			.feature__title::before {
+				background-image: url(../imgs/feature-deals-icon.svg);
+			}
+		}
+		&:nth-child(4) {
+			.feature__title::before {
+				background-image: url(../imgs/feature-plane-icon.svg);
+			}
+		}
+	}
+}

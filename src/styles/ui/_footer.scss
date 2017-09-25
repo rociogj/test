@@ -1,0 +1,225 @@
+.footer {
+
+	&__social {
+		padding: rem(40) rem(10);
+		text-align: center;
+		@media only screen and (max-width: $screen-sm) {
+			padding: rem(10);
+		}
+		.contact__box {
+			display: inline-block;
+			width: auto;
+			border: rem(2) solid #dbdbdb;
+			padding: rem(10) rem(10) rem(10) rem(40);
+			@include border-radius(3);
+			background-image: url(../imgs/movil-grey-icon.svg);
+			background-repeat: no-repeat;
+			background-position: 10px center;
+			@media only screen and (max-width: $screen-sm) {
+				margin: auto;
+			}	
+			span {
+				@inlcude main-font-regular(16);
+				color: #727272;
+				text-align: left;
+				@media only screen and (max-width: $screen-sm) {
+					display: block;
+				}
+			}
+		}
+		ul {
+			@extend %inline-block;
+			vertical-align: middle;
+			width: calc(100% - 380px);
+			text-align: right;
+			@media only screen and (max-width: $screen-sm) {
+				width: 100%;
+				text-align: center;
+				margin: rem(10) 0 0;
+			}
+		}
+		li {
+			@extend %inline-block;
+
+			a {
+				font-size: 0;
+				display: block;
+				background-color: #e6e6e6;
+				@include border-radius(50%);
+				-webkit-transition: all ease-out 0.3s;
+				-moz-transition: all ease-out 0.3s;
+				-o-transition: all ease-out 0.3s;
+				-ms-transition: all ease-out 0.3s;
+				transition: all ease-out 0.3s;
+
+				&::after {
+					content: '';
+					width: rem(20);
+					height: rem(20);
+					padding: rem(25);
+					@include border-radius(50%);
+					display: inline-block;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+			}
+			@each $social, $color in $rrss {
+				&.social--#{$social} {
+					a::after {
+						background-image: url(../imgs/#{$social}-icon.svg);
+					}
+					a:hover {
+						background-color: $color;
+					}
+				}
+			}
+		}
+	}
+
+	&__list {
+		padding: rem(20) 0;
+		border-top: rem(1) solid transparentize(#979797, .8);
+
+		@media only screen and (max-width: $screen-md) {
+			padding: 0;
+		}
+	}
+
+	&__item {
+		@inlcude main-font-regular(14);
+		text-transform: uppercase;
+		float: none;
+		@extend %inline-block;
+		vertical-align: top;
+
+		@media only screen and (max-width: $screen-md) {
+			text-align: center;
+			padding: 0;
+
+			&::after {
+				content: '';
+				width: rem(15);
+				height: rem(15);
+				display: inline-block;
+				position: absolute;
+				top: rem(10);
+				right: rem(15);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-image: url(../imgs/arrow-down-blue-icon.svg);
+			}
+			&.active::after {
+				background-image: url(../imgs/arrow-up-blue-icon.svg);
+			}
+		}
+		
+		a {
+			color: $secondary-color;
+			text-decoration: none;
+
+			@media only screen and (max-width: $screen-md) {
+				display: inline-block;
+				padding: rem(10) 0;
+			}
+		}
+
+		ul {
+			padding: rem(20) 0;
+			@media only screen and (max-width: $screen-md) {
+				display: none;
+				background-color: $secondary-bg-color;
+			}
+		} 
+
+		li {
+			@inlcude main-font-light(14);
+			text-transform: none;
+			line-height: rem(34);
+			a {
+				color: #777777;
+				padding: 0;
+			}
+		}
+	}
+
+	&__tools {
+		&-list {
+			li:first-child {
+				a::before {
+					background-image: url(../imgs/location-icon-grey.svg);
+				}
+			}
+			li:last-child {
+				a::before {
+					background-image: url(../imgs/cargo-icon-grey.svg);
+				}
+			}
+		}
+		&-item {
+			@extend %inline-block;
+			vertical-align: middle;
+			padding: rem(16);
+			text-align: left;
+
+			@media only screen and (max-width: $screen-md) {
+				padding: rem(10) rem(5);
+			}
+
+			a {
+				color: $secondary-color;
+				text-decoration: none;
+				@include main-font-regular(14);
+				display: inline-block;
+				vertical-align: middle;
+
+				&::before {
+					content: '';
+					display: inline-block;
+					vertical-align: middle;
+					width: rem(22);
+					height: rem(22);
+					background-repeat: no-repeat;
+					background-position: center;
+					margin-right: rem(10);
+
+					@media only screen and (max-width: $screen-md) {
+						margin: 0;
+					}
+				}
+
+			}
+		}
+	}
+
+	&__logos {
+		text-align: right;
+		background-image: url(../imgs/footer-bg.svg);
+		background-position: center;
+    	background-size: cover;
+		padding: rem(20) rem(10);
+
+		&-list {
+			li {
+				width: auto;
+				text-align: center;
+				float: none;
+				@extend %inline-block;
+				vertical-align: middle;
+				padding: 0 rem(20);
+
+				@media only screen and (max-width: $screen-md) {
+					width: 24%;
+				}
+				@media only screen and (max-width: $screen-xs) {
+					width: 49%;
+				}
+
+				img {
+					max-width: 100%;
+					-webkit-filter: grayscale(100%);
+    				filter: grayscale(100%);
+				}
+			}
+		}
+	}
+}

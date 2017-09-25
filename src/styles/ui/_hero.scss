@@ -1,0 +1,67 @@
+.hero {
+	background-image: url(../imgs/main-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: rem(150) 0 0;
+
+	@media only screen and (max-width: $screen-sm) {
+		padding: 0;
+	}
+
+	&__title {
+		@include main-font-light(43);
+		text-transform: uppercase;
+		max-width: rem(610);
+		padding: rem(30) rem(15) 0;
+
+		@media only screen and (max-width: $screen-sm) {
+			@include main-font-light(30);
+			max-width: 100%;
+		}
+
+		.regular {
+			@include main-font-regular(43);
+			@media only screen and (max-width: $screen-sm) {
+				@include main-font-regular(30);
+			}
+		}
+	}
+
+	&__features {
+		&-list {
+			padding: rem(10) 0;
+		}
+
+		&-item {
+			@extend %inline-block;
+			@include main-font-regular(15);
+			color: $main-text-color;
+
+			@media only screen and (max-width: $screen-sm) {
+				margin: rem(10) 0;
+			}
+
+			&::before {
+				content: '';
+				width: rem(15);
+				height: rem(15);
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 rem(10);
+				background-image: url(../imgs/check-icon.svg);
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+
+			span {
+				display: inline-block;
+				vertical-align: middle;
+
+				@media only screen and (max-width: $screen-sm) {
+					width: calc(100% - 35px);
+				}
+			}
+		}
+	}
+}

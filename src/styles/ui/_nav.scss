@@ -1,0 +1,198 @@
+.nav {
+	padding: 0 rem(10);
+	@media only screen and (max-width: $screen-sm) {
+		display: none;
+	}
+	&__list {
+		@extend %inline-block;
+		vertical-align: middle;
+		padding: rem(20) 0;
+
+		&--left {
+			width: calc(100% - 158px);
+
+			@media only screen and (max-width: $screen-sm) {
+				width: 100%;
+				padding: 0;
+			}
+		}
+
+		&--right {
+			text-align: right;
+
+			@media only screen and (max-width: $screen-sm) {
+				width: 100%;
+				padding: 0;
+			}
+
+			.nav__item {
+				margin-right: 0;
+			}
+		}
+		
+	}
+	&__item {
+		@extend %inline-flex;
+		@include main-font-regular(14);
+		text-transform: uppercase;
+		margin: 0 rem(12);
+
+		@media only screen and (max-width: $screen-sm) {
+			width: 100%;
+			margin: 0;
+			padding: rem(15) 0;
+			text-align: center;
+		}
+
+		&.active {
+			a {
+				@include main-font-bold(14);
+				color: $tertiary-color; 
+			}
+		}
+
+		a {
+			color: $main-text-color;
+			text-decoration: none;
+
+			@media only screen and (max-width: $screen-sm) {
+				width: 100%;
+				display: block;
+			}
+
+			&:hover {
+				color: $tertiary-color;
+			}
+		}
+		
+	}
+}
+.burger-nav {
+	display: none;
+	position: absolute;
+	cursor: pointer;
+	right: rem(10);
+	top: 0;
+	height: rem(38);
+	padding: rem(10) 0;
+	-webkit-backface-visibility: visible !important;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: opacity 700ms linear 0ms;
+	-moz-transition: opacity 700ms linear 0ms;
+	-ms-transition: opacity 700ms linear 0ms;
+	-o-transition: opacity 700ms linear 0ms;
+	transition: opacity 700ms linear 0ms;
+
+	@media only screen and (max-width: $screen-sm) {
+		display: block;
+	}
+
+	&__line {
+		background-color: $main-bg-color;
+		display: block;
+		width: rem(25);
+		height: rem(2);
+
+		-webkit-transition: -webkit-transform 200ms cubic-bezier(0.63, 0.62, 0.48, 1.64);
+		-moz-transition: -moz-transform 200ms cubic-bezier(0.63, 0.62, 0.48, 1.64);
+		-ms-transition: -ms-transform 200ms cubic-bezier(0.63, 0.62, 0.48, 1.64);
+		-o-transition: -o-transform 200ms cubic-bezier(0.63, 0.62, 0.48, 1.64);
+		transition: transform 200ms cubic-bezier(0.63, 0.62, 0.48, 1.64);
+
+		&.meat {
+			margin: rem(5) 0 rem(5);
+			-webkit-transition: opacity 300ms ease-in-out 0ms;
+			-moz-transition: opacity 300ms ease-in-out 0ms;
+			-ms-transition: opacity 300ms ease-in-out 0ms;
+			-o-transition: opacity 300ms ease-in-out 0ms;
+			transition: opacity 300ms ease-in-out 0ms;
+		}
+	}
+	&:hover {
+		.top {
+			-webkit-transform: rotateZ(0deg) translateX(0px) translateY(-3px);
+			-moz-transform: rotateZ(0deg) translateX(0px) translateY(-3px);
+			-ms-transform: rotateZ(0deg) translateX(0px) translateY(-3px);
+			-o-transform: rotateZ(0deg) translateX(0px) translateY(-3px);
+			transform: rotateZ(0deg) translateX(0px) translateY(-3px);
+		}
+		.bottom {
+			-webkit-transform: rotateZ(0deg) translateX(0px) translateY(3px);
+			-moz-transform: rotateZ(0deg) translateX(0px) translateY(3px);
+			-ms-transform: rotateZ(0deg) translateX(0px) translateY(3px);
+			-o-transform: rotateZ(0deg) translateX(0px) translateY(3px);
+			transform: rotateZ(0deg) translateX(0px) translateY(3px);
+		}			
+	}
+}
+.open {
+	.nav {
+		display: block;
+
+		&__item {
+			display: block;
+			width: 100%;
+		}
+	}
+	.burger-nav {
+		.top {
+			-webkit-transform: rotateZ(45deg) translateX(7px) translateY(5px) !important;
+			-moz-transform: rotateZ(45deg) translateX(7px) translateY(5px) !important;
+			-ms-transform: rotateZ(45deg) translateX(7px) translateY(5px) !important;
+			-o-transform: rotateZ(45deg) translateX(7px) translateY(5px) !important;
+			transform: rotateZ(45deg) translateX(7px) translateY(5px) !important;
+		}
+		.bottom {
+			-webkit-transform: rotateZ(-45deg) translateX(5px) translateY(-3px) !important;
+			-moz-transform: rotateZ(-45deg) translateX(5px) translateY(-3px) !important;
+			-ms-transform: rotateZ(-45deg) translateX(5px) translateY(-3px) !important;
+			-o-transform: rotateZ(-45deg) translateX(5px) translateY(-3px) !important;
+			transform: rotateZ(-45deg) translateX(5px) translateY(-3px) !important;
+		}
+		.meat {
+			opacity: 0;
+			-moz-opacity: 0;
+			filter: alpha(opacity=0);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

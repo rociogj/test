@@ -1,0 +1,415 @@
+
+
+.form{
+	display: inline-block;
+	margin: rem(16) auto;
+	text-align: left;
+}
+.form__input-field,
+.form__select-field {
+	display: block;
+	// width: 100%;
+}
+
+.form{
+
+	&__input-field {
+
+		label {
+			@include main-font-light(15);
+			color: $secondary-text-color;
+		}
+
+		input {
+			color: #4a4a4a;
+			@include main-font-regular(16);
+			@include border-radius(3);
+			border: solid rem(1) #CFCFCF;
+			margin-top: rem(5);
+			padding: rem(18) rem(16);
+			width: 100%;
+
+			&:focus {
+				border: solid rem(2) $secondary-color;
+				padding: rem(17) rem(16);
+			}
+		}
+	}
+
+	&__select-field{;
+		position: relative;
+		// width: auto;
+	}
+
+	&__select-oper{
+		@include main-font-regular(14);
+		text-align: center;
+		background: url(../imgs/arrow-down-white-icon.svg) no-repeat 90% 50%;
+		color: $main-text-color;
+		cursor: pointer;
+		display: inline-block;
+		line-height: rem(12);
+		padding: rem(16) rem(10) rem(16) 0;
+		position: relative;
+		width: auto;
+		min-width: rem(150);
+		text-transform: uppercase;
+
+		@media only screen and (max-width: $screen-sm) {
+			min-width: 0;
+			padding: rem(10) rem(25) rem(10) 0;
+		}
+		@media only screen and (max-width: $screen-xs) {
+			@include main-font-regular(12);
+		}
+
+		&.select--opened{
+			background: url(../imgs/arrow-up-white-icon.svg) no-repeat 90% 50%;
+		}
+	}
+
+	&__select-dropdown {
+		border: rem(1) solid #dbdbdb;
+   		box-shadow: 0 rem(4) rem(12) rgba(0, 0, 0, 0.15);
+    	@include border-radius(4);
+		background: $main-bg-color;
+		display: none;
+		// left: rem(10);
+		top: 100%;
+		list-style: none;
+		margin: 0;
+		max-height: rem(210);
+		min-width: rem(150);
+		// overflow: hidden;
+		position: absolute;
+		top: rem(44);
+		z-index: 3;
+		-webkit-transition: top ease-out 0.3s;
+		-moz-transition: top ease-out 0.3s;
+		-o-transition: top ease-out 0.3s;
+		-ms-transition: top ease-out 0.3s;
+		transition: top ease-out 0.3s;
+
+		@media only screen and (max-width: $screen-sm) {
+			min-width: rem(100);
+		}
+
+		&::before {
+			content: '';
+		    position: absolute;
+		    background-color: $main-bg-color;
+		    border-top: rem(1) solid #dbdbdb;
+		    border-right: rem(1) solid #dbdbdb;
+		    width: rem(10);
+		    height: rem(10);
+		    z-index: -1;
+		    bottom: calc(100% - 4px);
+		    left: rem(10);
+            -ms-transform: rotate(315deg);
+            -webkit-transform: rotate(315deg);
+            transform: rotate(315deg);
+		}
+
+		li{
+			background: #fff;
+			color: $secondary-color;
+			cursor: pointer;
+			@include main-font-regular(14);
+			text-transform: uppercase;
+			line-height: rem(14);
+			padding: rem(16);
+			text-align: center;
+			width: 100%;
+
+			@media only screen and (max-width: $screen-sm) {
+				@include main-font-regular(12);
+			}
+
+			&:hover,
+			&.selected {
+				background-color: $secondary-bg-color;
+			}
+		}
+	}
+}
+
+
+
+
+input::placeholder{
+	color: #4a4a4a;
+	@include main-font-regular(16);
+}
+::-webkit-input-placeholder{
+	color: #4a4a4a;
+	@include main-font-regular(16);
+}
+:-moz-placeholder{
+	color: #4a4a4a;
+	@include main-font-regular(16);
+}
+::-moz-placeholder{
+	color: #4a4a4a;
+	@include main-font-regular(16);
+}
+:-ms-input-placeholder{
+	color: #4a4a4a;
+	@include main-font-regular(16);
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+
+/* checkbox */
+.form__checkbox{
+	display: block;
+	@include main-font-regular(14);
+	margin: rem(16) 0;
+	width: 100%;
+}
+.form__checkbox .checkbox:not(:checked),
+.form__checkbox .checkbox:checked {
+	position: absolute;
+	left: -9999px;
+	opacity: 0;
+}
+.form__checkbox .checkbox + label {
+	color: #4a4a4a;
+	position: relative;
+	padding-left: rem(30);
+	cursor: pointer;
+	display: inline-block;
+	height: rem(20);
+	line-height: rem(20);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-html-user-select: none;
+	-ms-user-select: none;
+}
+.form__checkbox .checkbox + label:before,
+.form__checkbox .checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: rem(16);
+	height: rem(16);
+	z-index: 0;
+	border: rem(1) solid #4a4a4a;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	transition: .2s;
+
+}
+.form__checkbox .checkbox + label:before {
+	width: rem(16);
+	height: rem(16);
+	top: rem(1);
+	left: rem(1);
+	border: 0;
+	-webkit-transition: all ease-out 0.3s;
+	-moz-transition: all ease-out 0.3s;
+	-o-transition: all ease-out 0.3s;
+	-ms-transition: all ease-out 0.3s;
+	transition: all ease-out 0.3s;
+}
+.form__checkbox .checkbox:checked + label:before {
+	width: rem(16);
+	height: rem(16);
+	// background-color: $main-color;
+	-webkit-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+	z-index: 1;
+}
+.form__checkbox .checkbox:checked + label:after {
+	border: rem(1) solid #000;
+	background: {
+		/* image: url(../imgs/base/checked.svg); */
+		repeat: no-repeat;
+		size: 100%;
+		position: center;
+		color: #4a4a4a;
+	}
+}
+
+
+/* radio */
+.form__radio{
+	display: block;
+	@include main-font-regular(14);
+	letter-spacing: rem(-.2);
+	margin: rem(16) 0;
+	width: 100%;
+	position: relative;
+
+}
+.form__radio .radio:not(:checked),
+.form__radio .radio:checked {
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	width: rem(20);
+	height: rem(20);
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	margin: 0;
+}
+.form__radio .radio + label {
+	color: #4a4a4a;
+	position: relative;
+	padding: rem(5) 0;
+	padding-left: rem(23);
+	margin: 0;
+	cursor: pointer;
+	display: inline-block;
+	line-height: rem(16);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-html-user-select: none;
+	-ms-user-select: none;
+
+}
+.form__radio .radio + label:before,
+.form__radio .radio + label:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: rem(20);
+	height: rem(20);
+	z-index: 0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: rem(1) solid $secondary-bg-color;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	-ms-transition: .2s;
+	transition: .2s;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.form__radio .radio + label:before {
+	width: rem(12);
+	height: rem(12);
+	left: rem(4);
+	border: rem(1);
+	z-index: -1;
+	-webkit-transition: all ease-out 0.3s;
+	-moz-transition: all ease-out 0.3s;
+	-o-transition: all ease-out 0.3s;
+	-ms-transition: all ease-out 0.3s;
+	transition: all ease-out 0.3s;
+}
+.form__radio .radio:checked + label:before {
+	width: rem(12);
+	height: rem(12);
+	-webkit-transform-origin: 100% 100%;
+	transform-origin: 100% 100%;
+	z-index: 0;
+	background-color: $secondary-color;
+}
+.form__radio .radio:checked + label:after {
+	border: rem(1) solid $secondary-bg-color;
+}
+
+/* date */
+.form__date-field {
+	margin-left: rem(20);
+
+	input {
+		background-image: url(../imgs/calendar-icon.svg);
+		background-repeat: no-repeat;
+		background-position: 90% center;
+	}
+
+	.datepicker--pointer {
+		border-top: rem(1) solid $secondary-bg-color;
+		border-right: rem(1) solid $secondary-bg-color;
+	}
+
+	.datepicker--days-names {
+		margin: 0;
+		padding: rem(5) 0;
+		background-color: $secondary-bg-color;
+	}
+
+	.datepicker--day-name {
+		@include main-font-bold(12);
+		color: $secondary-color;
+	}
+
+	.datepicker--cell {
+		-webkit-border-radius: 0px;
+		-moz-border-radius: 0px;
+		border-radius: 0px;
+
+		&:hover {
+			background-color: $secondary-bg-color;
+		}
+
+		&.-selected- {
+			color: $main-bg-color;
+			background-color: $tertiary-color;
+
+			&.-current- {
+				color: $main-bg-color;
+				background-color: $tertiary-color;
+			}
+		}
+
+		&.-current- {
+			color: #4a4a4a;
+		}
+	}
+
+	.datepicker--nav {
+		@extend %flex;
+
+		&-action path {
+			stroke: $secondary-color;
+		}
+
+		&-title, &-action {
+			@extend %flex;
+		}
+	}
+}
+
+
+/* submit */
+.form__submit{
+	border: 0;
+	cursor: pointer;
+}
+
+/* error */
+.form .error{
+	color: #ff6f6f;
+	@include main-font-regular(14);
+}
+
+.form input.error {
+	border: rem(1) solid #ff7373 !important;
+}
+
+/* valid */
+.form input.valid {
+	border: rem(1) solid #2da840 !important;
+}

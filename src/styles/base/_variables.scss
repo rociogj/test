@@ -1,0 +1,45 @@
+// FONTS
+
+$default-font-size: 16;
+
+$main-font-bold: ProximaNova-Bold, arial, sans-serif;
+$main-font-regular: ProximaNova-Regular, arial, sans-serif;
+$main-font-light: ProximaNova-Light, arial, sans-serif;
+
+
+// COLORS
+
+$main-color: #2a6ebb;
+$secondary-color: #2CA1E9;
+$tertiary-color: #FD935C;
+$main-text-color: #ffffff;
+$secondary-text-color: #444444;
+$tertiary-text-color: #333333;
+$main-bg-color: #ffffff;
+$secondary-bg-color: #ededed;
+$tertiary-bg-color: #000000;
+$tw-color: #00aced;
+$fb-color: #3B5998;
+$linkedin-color: #007bb6;
+
+// MEDIA QUERIES
+
+$screen-xs: 480px;
+$screen-sm: 767px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-xlg: 1440px;
+
+
+
+$freights: (
+	'ship',
+	'plane',
+	'shipping'
+) !default;
+$rrss: (
+	'tw': $tw-color,
+	'fb': $fb-color,
+	'linkedin': $linkedin-color
+) !default;
+

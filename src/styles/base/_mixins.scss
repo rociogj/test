@@ -1,0 +1,66 @@
+
+@mixin main-font-regular($size) {
+	font-family: $main-font-regular;
+	font-weight: 100;
+	@if $size > 0 { font-size: rem($size) }
+}
+@mixin main-font-bold($size) {
+	font-family: $main-font-bold;
+	font-weight: 100;
+	@if $size > 0 { font-size: rem($size) }
+}
+@mixin main-font-light($size) {
+	font-family: $main-font-light;
+	font-weight: 100;
+	@if $size > 0 { font-size: rem($size) }
+}
+
+@mixin border-radius($size) {
+	@if $size >= 0 {
+
+		@if $size != 50% {
+			-webkit-border-radius: $size + px;
+			-moz-border-radius: $size + px;
+			border-radius: $size + px;
+		} @else {
+			-webkit-border-radius: $size;
+			-moz-border-radius: $size;
+			border-radius: $size;
+		}
+	}
+}
+
+@mixin fontFace($family, $src, $style: normal, $weight: 100) {
+	@font-face {
+		font-family: $family;
+		src: url('#{$src}.eot'); // IE9 compat
+		src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+			url('#{$src}.woff') format('woff'), // standards
+			url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+			url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+		font-style: $style;
+		font-weight: $weight;
+	}
+}
+
+
+@function rem($pixels, $context: $default-font-size) {
+	@return #{$pixels/$context}rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

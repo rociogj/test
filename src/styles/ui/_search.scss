@@ -1,0 +1,247 @@
+.search {
+	padding: rem(50) 0;
+
+	&__tabs {
+		font-size: 0;
+	}
+
+	&__tab {
+		@extend %inline-block;
+		margin: 0 rem(1);
+		text-align: center;
+		min-width: rem(200);
+
+		@media only screen and (max-width: $screen-sm) {
+			width: 32.5%;
+			min-width: 0;
+		}
+
+		a {
+			@include main-font-bold(13);
+			text-transform: uppercase;
+			color: $main-text-color;
+			padding: rem(18) rem(30) rem(18) rem(15);
+			display: block;
+			background-color: transparentize($main-bg-color, .8);
+			position: relative;
+
+			@media only screen and (max-width: $screen-sm) {
+				padding: rem(18) rem(15);
+				min-height: rem(97);
+			}
+
+			&:hover, &.active {
+				color: $secondary-color;
+				background-color: transparentize($main-bg-color, .9);
+				text-decoration: none;
+
+				&::after {
+					content: '';
+					height: rem(4);
+					width: 100%;
+					position: absolute;
+					top: rem(-4);
+					left: 0;
+					background-color: $secondary-color;
+				}
+			}
+
+			&::before {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: rem(34);
+				height: rem(25);
+				margin: 0 rem(10) 0 0;
+				background-repeat: no-repeat;
+				background-position: center;
+
+				@media only screen and (max-width: $screen-sm) {
+					display: block;
+					margin: 0 auto rem(10);
+				}
+			}
+		}
+
+		@each $freight in $freights {
+			&--#{$freight} {
+				a::before {
+					background-image: url(../imgs/#{$freight}-icon.svg);
+				}
+				a:hover::before, a.active::before {
+					background-image: url(../imgs/#{$freight}-blue-icon.svg);
+				}
+			}
+		}
+
+	}
+
+	&__contents {
+		background-color: $main-bg-color;
+		text-align: center;
+		padding: rem(10) rem(15) rem(20);
+		border: rem(4) solid $secondary-color;
+		position: relative;
+		
+		&::before {
+			content: '';
+			width: rem(18);
+			height: rem(18);
+			@include border-radius(3);
+			background-color: $secondary-color;
+			-ms-transform: rotate(315deg);
+			-webkit-transform: rotate(315deg);
+			transform: rotate(315deg);
+			position: absolute;
+			top: rem(-12);
+			left: rem(60);
+		}
+		&::after {
+			content: '';
+			width: rem(17);
+			height: rem(17);
+			background-color: $main-bg-color;
+			-ms-transform: rotate(315deg);
+			-webkit-transform: rotate(315deg);
+			transform: rotate(315deg);
+			position: absolute;
+			top: rem(-6);
+			left: rem(60);
+		}
+
+		&[data-tab='1'] {
+			&::before, &::after {
+	        	left: rem(80);
+	        	@media only screen and (max-width: $screen-sm) {
+	        		left: 10%;
+	        	}
+	        } 
+		}
+		&[data-tab='2'] {
+			&::before, &::after {
+	        	left: rem(280);
+	        	@media only screen and (max-width: $screen-sm) {
+	        		left: 32% + 10%;
+	        	}
+	        } 
+		}
+		&[data-tab='3'] {
+			&::before, &::after {
+	        	left: rem(480);
+	        	@media only screen and (max-width: $screen-sm) {
+	        		left: 64% + 10%;
+	        	}
+	        } 
+		}	
+	}
+
+	&__content {
+		display: none;
+
+
+		&.active {
+			display: block;
+		}
+
+		$pointer-position: 5%;
+
+
+	}
+
+	&__reverse {
+		font-size: 0;
+		text-align: center;
+		&::after {
+			content: '';
+			width: rem(20);
+			height: rem(20);
+			display: inline-block;
+			vertical-align: bottom;
+			@include border-radius(3);
+			background-color: $tertiary-bg-color;
+			padding: rem(27) rem(20);
+			background-image: url(../imgs/arrows-icon.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		&:hover {
+			&::after {
+				background-color: $secondary-color;
+			}
+		}
+	}
+
+	&__label {
+		display: block;
+		margin: auto;
+		padding: 0;
+		float: none;
+		text-align: left;
+		@include main-font-regular(14);
+		color: $secondary-text-color;
+
+		&::before {
+			content: '';
+			width: rem(25);
+			height: rem(23);
+			display: inline-block;
+			vertical-align: middle;
+			background-image: url(../imgs/location-icon-grey.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	&__form {
+		float: none;
+		padding: 0;
+
+		@media only screen and (max-width: $screen-md) {
+			text-align: center;
+		}
+
+		.form {
+			&__input {
+				&-field {
+					float: none;
+					display: inline-block;
+					vertical-align: bottom;
+					padding: 0;
+					text-align: left;
+
+					@media only screen and (max-width: $screen-md) {
+						width: calc(50% - 25px);
+					}
+				}
+			}
+			&__date {
+				&-field {
+					@media only screen and (max-width: $screen-md) {
+						margin: rem(10) 0 0;
+						width: 100%;
+					}
+
+					input {
+						@media only screen and (max-width: $screen-md) {
+							background-position: 97% center;
+						}
+					}
+				}
+			}
+			&__submit {
+				width: calc(24% - 20px);
+				padding: rem(17) 0;
+				margin: 0 0 0 rem(20);
+
+				@media only screen and (max-width: $screen-md) {
+					margin: rem(15) 0;
+					width: 100%;
+				}
+
+				&:hover {
+					padding: rem(14) 0;
+				}
+			}
+		}
+	}
+}
