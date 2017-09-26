@@ -11,7 +11,7 @@ In order to get started you have to make sure that you have Node and npm install
 Open your command shell and write down:
 > npm install -g grunt-cli
 
-To install grunt globally. (skip this ste, if you already have grunt installed)
+To install grunt globally. (skip this step, if you already have grunt installed)
 
 We also need bower in this project, run:
 > npm install -g bower
