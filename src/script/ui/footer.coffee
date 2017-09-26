@@ -2,14 +2,13 @@ jQuery(document).ready ($) ->
   isDesktop = $(window).width() > 1023
 
   init = ->
-  			if !isDesktop
-      			setFooterNav()
-      			return
       setJSONFooter()
+      if !isDesktop
+      	setFooterNav()
       return
 
   setFooterNav = ->
-    $('.footer__item').on 'click touchstart', (event) ->
+    $(document).on 'click', '.footer__item', (event) ->
       event.preventDefault()
       if $(@).hasClass 'active'
         $(@).removeClass 'active'

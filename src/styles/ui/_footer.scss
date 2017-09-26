@@ -4,7 +4,7 @@
 		padding: rem(40) rem(10);
 		text-align: center;
 		@media only screen and (max-width: $screen-sm) {
-			padding: rem(10);
+			padding: 0 rem(10) rem(20);
 		}
 		.contact__box {
 			display: inline-block;
@@ -17,7 +17,7 @@
 			background-position: 10px center;
 			@media only screen and (max-width: $screen-sm) {
 				margin: auto;
-			}	
+			}
 			span {
 				@inlcude main-font-regular(16);
 				color: #727272;
@@ -35,7 +35,7 @@
 			@media only screen and (max-width: $screen-sm) {
 				width: 100%;
 				text-align: center;
-				margin: rem(10) 0 0;
+				margin: rem(16) 0 0;
 			}
 		}
 		li {
@@ -81,7 +81,7 @@
 		border-top: rem(1) solid transparentize(#979797, .8);
 
 		@media only screen and (max-width: $screen-md) {
-			padding: 0;
+			padding: 0 0 rem(16);
 		}
 	}
 
@@ -102,7 +102,7 @@
 				height: rem(15);
 				display: inline-block;
 				position: absolute;
-				top: rem(10);
+				top: rem(16);
 				right: rem(15);
 				background-repeat: no-repeat;
 				background-position: center;
@@ -112,14 +112,14 @@
 				background-image: url(../imgs/arrow-up-blue-icon.svg);
 			}
 		}
-		
+
 		a {
 			color: $secondary-color;
 			text-decoration: none;
 
 			@media only screen and (max-width: $screen-md) {
 				display: inline-block;
-				padding: rem(10) 0;
+				padding: rem(16) 0;
 			}
 		}
 
@@ -129,7 +129,7 @@
 				display: none;
 				background-color: $secondary-bg-color;
 			}
-		} 
+		}
 
 		li {
 			@inlcude main-font-light(14);
@@ -195,7 +195,7 @@
 		text-align: right;
 		background-image: url(../imgs/footer-bg.svg);
 		background-position: center;
-    	background-size: cover;
+    		background-size: cover;
 		padding: rem(20) rem(10);
 
 		&-list {

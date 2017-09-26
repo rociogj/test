@@ -1,176 +1,140 @@
 
-.overflow-hidden {
-  max-width: 100vw;
-  overflow: hidden;
-}
-
 .body {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .header {
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  background: rgba(25,119,177,1);
-  background: -moz-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(25,119,177,1)), color-stop(100%, rgba(34,132,195,0)));
-  background: -webkit-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
-  background: -o-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
-  background: -ms-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
-  background: linear-gradient(to bottom, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1977b1', endColorstr='#2284c3', GradientType=0 );
-  @media only screen and (max-width: $screen-sm) {
-    position: relative;
-    background-color: $secondary-color;
-  }
-}
-
-.header--fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	background: rgba(25,119,177,1);
+	background: -moz-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(25,119,177,1)), color-stop(100%, rgba(34,132,195,0)));
+	background: -webkit-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
+	background: -o-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
+	background: -ms-linear-gradient(top, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
+	background: linear-gradient(to bottom, rgba(25,119,177,1) 0%, rgba(34,132,195,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1977b1', endColorstr='#2284c3', GradientType=0 );
+	@media only screen and (max-width: $screen-sm) {
+		position: relative;
+		background-color: $secondary-color;
+	}
 }
 
 .wrapper {
-  display: block;
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-  width: 100%;
-  // max-width: rem(1250);
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 100%;
+  	// max-width: rem(1250);
   min-height: 100vh;
 }
 .title {
-  color: #fff;
+	color: #fff;
 }
 .wrapper img {
-  max-width: 100%;
-  /* width: auto; */
+	max-width: 100%;
+	/* width: auto; */
 }
 
 .belt {
-  margin: 0 auto;
-  max-width: rem(1050);
-  position: relative;
-  width: 100%;
+	margin: 0 auto;
+	max-width: rem(1050);
+	position: relative;
+	width: 100%;
 }
 
 a.no-underline {
-  text-decoration: none !important;
+	text-decoration: none !important;
 
-  &:hover {
-    text-decoration: none !important;
-  }
+	&:hover {
+		text-decoration: none !important;
+	}
 }
 
 
 /* -----  Variable selectors ------ */
 
 %centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 %vertical-centered {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 %horizontal-centered {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 %inline-block {
-  display: inline-block;
-  vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 
 /* ----- Flexbox ------ */
 
 %flex {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 
-  /* Hack for IE 8, 9 and 10 */
-  @media screen\0 {
-    display: block;
-  }
+	/* Hack for IE 8, 9 and 10 */
+	@media screen\0 {
+		display: block;
+	}
 }
 %inline-flex {
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flex;
-  display: -o-inline-flex;
-  display: inline-flex;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
 
-  /* Hack for IE 8, 9 and 10 */
-  @media screen\0 {
-    display: inline-block;
-  }
+	/* Hack for IE 8, 9 and 10 */
+	@media screen\0 {
+		display: inline-block;
+	}
 }
 %flex-center {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 
-  /* Hack for IE 8, 9 and 10 */
-  @media screen\0 {
-    display: block;
-  }
+	/* Hack for IE 8, 9 and 10 */
+	@media screen\0 {
+		display: block;
+	}
 }
-
-
-
-
-
-
-
-
-
-/* --------------- Media Queries ----------------- */
-
-@media only screen and (max-width: $screen-lg) { }
-
-@media only screen and (max-width: $screen-md) { }
-
-@media only screen and (max-width: $screen-sm) { }
-
-@media only screen and (max-width: $screen-xs) { }
-
-
-
-
-
-
 
 
 
